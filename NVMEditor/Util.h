@@ -27,15 +27,15 @@ namespace NVMEditor {
 	};
 	//vec3 struct
 	struct Vector3 {
-		int x;
-		int y;
-		int z;
+		float x;
+		float y;
+		float z;
 	};
 	//vec2 struct
 
 	struct Vector2 {
-		int x;
-		int y;
+		float x;
+		float y;
 	};
 
 	struct MountPoint{
@@ -55,7 +55,7 @@ namespace NVMEditor {
 		std::vector<MountPoint> mount_points;
 	};
 
-	struct NavigationCellLink {
+	struct NavigationCell {
 		Vector2 min;
 		Vector2 max;
 		BYTE entry_count;
@@ -74,7 +74,7 @@ namespace NVMEditor {
 		ushort destination_region;
 	};
 
-	struct NavigationCell {
+	struct NavigationCellLink {
 		Vector2 min;
 		Vector2 max;
 
