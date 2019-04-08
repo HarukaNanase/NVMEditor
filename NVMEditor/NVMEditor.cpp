@@ -2,11 +2,17 @@
 //
 
 #include "pch.h"
-#include <iostream>
+#include "NVMReader.h"
 
+
+namespace fs = std::filesystem;
+using namespace NVMEditor;
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	std::cout << sizeof(Vector2) << std::endl;
+	NVMReader reader(fs::current_path().string());
+	reader.create_navmeshes();
+	std::cin.get();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -11,6 +11,11 @@
 
 #include <vector>
 #include <map>
+#include <fstream>
+#include <ostream>
+#include <filesystem>
+#include <iostream>
+#include <string>
 // TODO: add headers that you want to pre-compile here
 
 #endif //PCH_H

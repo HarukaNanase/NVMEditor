@@ -2,9 +2,14 @@
 
 #include <vector>
 #include <map>
-#include <windef.h>
+#include <Windows.h>
 #include <memory>
 namespace NVMEditor {
+
+
+#define NVM_EXTENSION ".nvm"
+#define NVM_DIRECTORY "nvm"
+
 
 	typedef unsigned short ushort;
 	typedef unsigned int uint;
@@ -12,7 +17,7 @@ namespace NVMEditor {
 
 
 	struct NavMeshMetadata {
-		char Header[12]; //12 bytes at start of file
+		char header[12]; //12 bytes at start of file
 		ushort nav_entries; //
 		uint cell_entries;
 		uint cell_extra_entries;
@@ -20,18 +25,6 @@ namespace NVMEditor {
 		uint cell_link_entries;
 
 	};
-
-	struct NavMesh {
-		NavMeshMetadata metadata;//std::unique_ptr<NavMeshMetadata> metadata;
-		std::map<uint,NavigationEntry> nav_entries;
-		std::vector<NavigationCell> cells;
-		std::vector<RegionLink> region_links;
-		std::vector<NavigationCell> nav_cells;
-		std::vector<TextureMap> texture_maps;
-		std::vector<HeightMap> height_maps;
-	};
-
-
 	//vec3 struct
 	struct Vector3 {
 		int x;
@@ -43,6 +36,10 @@ namespace NVMEditor {
 	struct Vector2 {
 		int x;
 		int y;
+	};
+
+	struct MountPoint{
+		BYTE mount_point[6];
 	};
 
 	struct NavigationEntry {
@@ -57,12 +54,8 @@ namespace NVMEditor {
 		ushort mount_point_entries;
 		std::vector<MountPoint> mount_points;
 	};
-	
-	struct MountPoint{
-		BYTE mount_point[6];
-	};
 
-	struct NavigationCell {
+	struct NavigationCellLink {
 		Vector2 min;
 		Vector2 max;
 		BYTE entry_count;
@@ -92,7 +85,6 @@ namespace NVMEditor {
 		ushort source_cell;
 		ushort destination_cell;
 	};
-
 #define TEXTURE_MAP_X 96
 #define TEXTURE_MAP_Y 96
 
@@ -111,6 +103,16 @@ namespace NVMEditor {
 		float Height;
 	};
 
+
+	struct NavMesh {
+		NavMeshMetadata metadata;//std::unique_ptr<NavMeshMetadata> metadata;
+		std::map<uint, NavigationEntry> nav_entries;
+		std::vector<NavigationCell> nav_cells;
+		std::vector<RegionLink> region_links;
+		std::vector<NavigationCellLink> nav_cell_links;
+		std::vector<TextureMap> texture_maps;
+		std::vector<HeightMap> height_maps;
+	};
 
 
 
