@@ -11,7 +11,9 @@ The navmesh metadata contains information about how many entries of each element
 
 The structure of metadata is the following:
 
-struct NavMeshMetadata {
+
+struct NavMeshMetadata 
+{
 		char header[12]; // 12 bytes
 		ushort nav_entries;
 		uint cell_entries;
@@ -19,7 +21,7 @@ struct NavMeshMetadata {
 		uint region_link_entries;
 		uint cell_link_entries;
 
-	};
+};
   
   As we can see, there is a header (a string of 12 chars) and the number of entries for each type.
   
