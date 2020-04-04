@@ -32,7 +32,7 @@ struct NavMeshMetadata
   
   The structure is the following:
   
-  struct NavigationEntry {
+  	struct NavigationEntry {
 		uint id;
 		Vector3 position;
 		ushort collision;
@@ -48,11 +48,11 @@ struct NavMeshMetadata
   
   Other structures can be found below:
   
-  struct MountPoint{
+  	struct MountPoint{
 		BYTE mount_point[6];
 	}
   
-  struct NavigationCell {
+  	struct NavigationCell {
 		Vector2 min;
 		Vector2 max;
 		BYTE entry_count;
@@ -83,7 +83,7 @@ struct NavMeshMetadata
 		ushort destination_cell;
 	}
   
-  struct TextureMap {
+  	struct TextureMap {
 		
 		ushort w1;
 		ushort w2;
@@ -91,14 +91,14 @@ struct NavMeshMetadata
 		ushort w4;
 	};
   
-  struct HeightMap {
+  	struct HeightMap {
 		float Height;
 	};
   
   
 And finally the navmesh struct:
 
-struct NavMesh {
+	struct NavMesh {
 		NavMeshMetadata metadata;//std::unique_ptr<NavMeshMetadata> metadata;
 		std::map<uint, NavigationEntry> nav_entries;
 		std::vector<NavigationCell> nav_cells;
