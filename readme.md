@@ -39,7 +39,7 @@ The structure of metadata is the following:
 		float yaw;
 		ushort unique_id;
 		ushort unknown_0;
-		ushort event_zone; // 0 = no collision while using CTF suit, 256 = collision when using CTF suit
+		ushort event_zone; // 0 = no collision while using CTF suit, 255 = collision when using CTF suit
 		ushort region_id;
 		ushort mount_point_entries;
 		std::vector<MountPoint> mount_points;
